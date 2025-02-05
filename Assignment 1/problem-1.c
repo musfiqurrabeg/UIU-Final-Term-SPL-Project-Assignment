@@ -6,8 +6,6 @@ int count_odd_digits(int x);
 int is_warrior(int x);
 void list_fibonacci_warriors(int limit);
 
-
-
 int main() {
     int n;
     printf("\nEnter the upper range: ");
