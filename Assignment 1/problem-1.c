@@ -29,13 +29,10 @@ int is_fibonacci(int x) {
 }
 
 int count_odd_digits(int x) {
-    if (x == 0) {
-        return 0;
-    }
-    int last_digit = x % 10; 
-    int is_odd = last_digit % 2 != 0 ? 1 : 0;
-    return is_odd + count_odd_digits(x / 10);
+    if (x == 0) return 0;
+    return (x % 10) % 2 + count_odd_digits(x / 10);
 }
+
 int is_warrior(int x) {
     if (is_fibonacci(x) && (count_odd_digits(x) % 2 == 0)) {
         return 1;
