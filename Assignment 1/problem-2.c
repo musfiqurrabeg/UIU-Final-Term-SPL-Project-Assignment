@@ -63,7 +63,7 @@ int main() {
     int choice;
     char showName[100];
 
-    do {
+    while(1) {
         printf("1. Add a show\n");
         printf("2. Book a ticket\n");
         printf("3. List out the shows\n");
@@ -71,25 +71,20 @@ int main() {
         printf("What do you want? ");
         scanf("%d", &choice);
 
-        switch (choice) {
-            case 1:
-                addShow(listings, &numShows);
-                break;
-            case 2:
-                printf("Please name a show: ");
-                scanf(" %[^\n]s", showName);
-                bookTicket(listings, numShows, showName);
-                break;
-            case 3:
-                displayShows(listings, numShows);
-                break;
-            case 4:
-                printf("Exiting...\n");
-                break;
-            default:
-                printf("Invalid choice. Please try again.\n");
+        if (choice == 1){
+            addShow(listings, &numShows);
+        } else if(choice == 2) {
+            printf("Enter show name: ");
+            scanf("%[^\n]s", showName);
+            bookTicket(listings, numShows, showName);
+        } else if (choice == 3){
+            displayShows(listings, numShows);
+        } else if (choice == 4) {
+            printf("Exiting............\n");
+            break;
+        } else {
+            printf("Invalid Choice. Please Try Again later \n");
         }
-    } while (choice != 4);
-
+    }
     return 0;
 }
